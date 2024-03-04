@@ -1,0 +1,51 @@
+name: CI/CD Pipeline
+on:
+   workflow_dispatch:
+    inputs:
+      tagid:
+        description: 'Tag ID'     
+        required: true
+
+jobs:       
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1
+    - name: Checkout to repo
+      uses: actions/checkout@v2
+
+    - name: Setup SSH
+      uses: MrSquaare/ssh-setup-action@v1
+      with:
+          host: github.com
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Step 2
+    - name: Set AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+      
+      #step 3
+#       # Deploy push to AWS S3
+    - name: AWS Deploy push
+      run: |
+         sudo apt-get -y update; sudo apt-get -y install git curl jq python3-pip; sudo apt-get -y install wget zip unzip
+         sudo pip3 install -U awscli
+         sudo curl -fsSL https://get.docker.com -o get-docker.sh
+         git clone git@github.com:meghanadhanekula1/genesis-admin-frontend.git -b ${{github.event.inputs.tagid}}
+         ls -la
+         zip -r $GITHUB_SHA.zip genesis-admin-frontend
+         ls -la
+         pwd
+         aws sts get-caller-identity
+         aws s3 ls s3://genises-test --recursive
+         aws s3 cp $GITHUB_SHA.zip s3://genises-test/
+         aws deploy create-deployment \
+         --application-name genesis-dev \
+         --deployment-group-name genesis-dev \
+         --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
+         #--s3-location bucket=genises-test,key=$GITHUB_SHA.zip,bundleType=zip
+         #--s3-location bucket=genises-test,key=geneses-dev/$GITHUB_SHA.zip,bundleType=zip

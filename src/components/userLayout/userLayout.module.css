@@ -1,0 +1,26 @@
+/* Add styles for the top bar */
+
+
+/* Adjust the .container class to account for the top bar */
+.container {
+  display: flex;
+  flex-direction: column; /* Change the direction to column to stack top bar and the main content area */
+  height: 100%;
+  /* background-color: rgb(58, 56, 56); */
+}
+
+/* New class for the content area that includes sidebar and main content */
+.contentArea {
+  display: flex;
+  flex: 1; /* Take up the remaining space */
+  /*  margin-top: 65px;Push down to make space for the top bar */
+  /* background-color: rgb(215, 37, 37); */
+}
+
+/* Adjust the .mainContent class if necessary */
+.mainContent {
+  flex: 1;
+/*  margin-left: 200px;  Keep this to maintain the sidebar's space */
+  padding: 20px;
+  background-color: #FFFFFF;
+}

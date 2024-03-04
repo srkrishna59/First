@@ -1,0 +1,74 @@
+.container1 {
+  background-color: white;
+  width: 50vw;
+  height: 40vh;
+  padding-left: 2vw;
+  padding-top: 2vh;
+}
+
+.container2 {
+  background-color: white;
+  width: 30vw;
+  height: 40vh;
+  padding-left: 2vw;
+  padding-top: 2vh;
+
+}
+
+.container3 {
+  background-color: white;
+  width: 24vw;
+  height: 40vh;
+  padding-left: 1vw;
+  padding-top: 2vh;
+
+}
+.circle {
+  background: rgba(38, 133, 191, 1);
+  width: 2vw;
+  height: 2vh;
+  border-radius: 50%;
+  padding: 2vh;
+}
+.displayRow{
+  display: flex;
+  flex-direction: row;
+  column-gap: 2vw;
+  /* justify-content: space-around; */
+}
+.displayRow1{
+  display: flex;
+  flex-direction: row;
+  column-gap: 2vw;
+  justify-content: space-around;
+}
+.viewAll{
+  bottom:10px;
+  position:absolute;
+  padding-Left:10vw;
+}
+.viewAll2{
+  bottom:10px;
+  position:absolute;
+  padding-Left:8vw;
+}
+.fontWeight{
+  font-Weight:700;
+  font-Size:2vh;
+}
+.itemCenter{
+  align-items: center;
+}
+.maindiv{
+  display:flex;
+  flex-Direction:row;
+  column-Gap:2vw;
+}
+.cardBox{
+  padding-Top:1vh;
+  padding-Bottom:1vh;
+}
+.fontSize{
+  font-Weight:500;
+  margin-Left:1vw;
+}

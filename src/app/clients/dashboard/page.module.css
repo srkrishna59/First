@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(246, 246, 246, 1);
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+}
+.tableContainer {
+  margin-top: 20px;
+}

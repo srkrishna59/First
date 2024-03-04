@@ -1,0 +1,48 @@
+.container {
+  font-family: Arial, sans-serif;
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+}
+
+.calendar {
+  /* width: 20vw; */
+  border-collapse: collapse;
+  /* border: 1px solid #ccc; */
+}
+
+.calendar th,
+.calendar td {
+  /* padding: 0.5vh; */
+  width: 3vw;
+  text-align: center;
+  /* border: 1px solid #ccc; */
+}
+
+.calendar th {
+  background-color: rgba(38, 133, 191, 1);
+}
+
+.cell {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.otherMonth {
+  color: #ccc;
+}
+
+.buttonStyles {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 0 5px;
+}
+
+.buttonStyles:hover {
+  color: #007bff;
+}
